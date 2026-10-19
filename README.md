@@ -4,11 +4,30 @@ Analyze repeated test outcomes locally to identify **observed instability**. The
 
 Observed inconsistency does not prove that a test is flaky. Source changes, changing inputs, infrastructure, or environment differences may explain it. No confidence score is presented as scientific certainty.
 
-This is an unreleased candidate. Registry namespace, GitHub URLs and Apache-2.0 licensing require approval. Candidate dependencies must be staged from reviewed tarballs until approved publication. Public registry installation has not been verified.
+Version 0.1.0 is prepared under the Apache-2.0 license. Use the GitHub source installation below; npm registry publication is not claimed.
+
+<!-- ZOF_RELEASE_INSTALL_START -->
+## Install from GitHub source
+
+Requires Node.js 22 or 24, npm, and Git. Filesystem operations require Linux or macOS with Python 3.10 or newer; Windows file operations fail closed. Clone this repository and explicitly prepare its reviewed release dependencies:
+
+```sh
+git clone https://github.com/Zof-AI/zof-flaky-test-detector.git
+cd zof-flaky-test-detector
+node scripts/bootstrap.mjs --allow-network
+npm ci --ignore-scripts --prefer-offline
+npm run build
+npm test
+```
+
+The bootstrap downloads only the exact `v0.1.0` dependency assets from [GitHub Releases](https://github.com/Zof-AI/zof-flaky-test-detector/releases), as listed in `scripts/release-dependencies.json`, verifies SHA256 and byte size, and adds them to the npm cache. It does not extract archives, run package scripts, collect application data, or send credentials. Downloads require the explicit flag and follow only HTTPS GitHub asset redirects. Installation then fetches ordinary third-party dependencies from npm. Use a writable npm cache; set `npm_config_cache` consistently for both commands if needed. An unavailable asset, changed hash, or oversized response stops installation.
+
+GitHub source and release artifacts are the initial distribution channel. These instructions do not claim that `@zof-ai` packages are published on npm or that the VS Code extension is listed in Marketplace.
+<!-- ZOF_RELEASE_INSTALL_END -->
 
 ## Quick start
 
-Requires Node.js 22 or 24. In a prepared candidate environment, or after approved dependency publication:
+Requires Node.js 22 or 24. After the source installation above:
 
 ```sh
 npm ci --ignore-scripts
@@ -16,7 +35,7 @@ npm run build
 node dist/cli.js --root examples --observations stable-observations.json --json
 ```
 
-The output identifies three observed passing results for `stable`. The candidate registry name is `@zof-ai/flaky-test-detector`; the executable name is `zof-flaky-test-detector`.
+The output identifies three observed passing results for `stable`. The package identifier is `@zof-ai/flaky-test-detector`; the executable name is `zof-flaky-test-detector`.
 
 ## Three examples
 
@@ -79,7 +98,7 @@ Exit codes are `0` analysis completed with sufficient observations, `1` observed
 
 Input limits: up to 64 JUnit files, 4 MiB per file, 32 MiB total XML, 256 JSON runs, 10,000 cases per run, and 100,000 observations total. JSON files are limited to 4 MiB. Analysis and report serialization also obey the shared evidence bounds. XML document types and entities are prohibited; external resources are never fetched. No archive extraction occurs. Paths must stay inside an explicit root; symlinks, traversal and URL inputs cannot be read.
 
-The importer ignores application logs, XML properties, failure bodies, environment variables and source content. Recognizable credentials and URL metadata are redacted. Avoid secrets in test names because no redactor can recognize every arbitrary secret. Read a stable staging directory; this tool is not a sandbox against concurrent hostile filesystem mutation. No network, commands or repository tests run during analysis. No automatic quarantine or uploaded evidence is performed.
+The importer ignores application logs, XML properties, failure bodies, environment variables and source content. Recognizable credentials and URL metadata are redacted. Avoid secrets in test names because no redactor can recognize every arbitrary secret. Reads are anchored to directory descriptors and reject symlink replacement; file contents can still change during capture. No network, commands or repository tests run during analysis. No automatic quarantine or uploaded evidence is performed.
 
 ## Validation and release
 
@@ -88,4 +107,4 @@ npm test
 npm pack --ignore-scripts
 ```
 
-Tests cover deterministic JUnit outcomes, qualified identity handling, exact transition denominators, gaps, insufficient samples, duplicate observations, XXE, malformed/oversized XML, missing files, symlinks, redaction, documented CLI commands and a clean tarball installation with explicit candidate dependencies. Cross-platform CI is configured; locally completed runs verify macOS/Node 22. See [security policy](SECURITY.md) and [release procedure](docs/RELEASE.md). Public publication and published installation checks remain approval gates.
+Tests cover deterministic JUnit outcomes, qualified identity handling, exact transition denominators, gaps, insufficient samples, duplicate observations, XXE, malformed/oversized XML, missing files, symlinks, redaction, documented CLI commands and a clean tarball installation with explicit candidate dependencies. CI targets Linux/macOS on Node 22/24; only completed jobs establish platform verification. See [security policy](SECURITY.md) and [release procedure](docs/RELEASE.md). Registry publication and live registry installation are not claimed.
