@@ -1,5 +1,5 @@
-import { normalizeReport, MAX_REPORT_BYTES } from '@zof-ai/ci-evidence';
-import { assertSafeRelativePath, redact, redactText, safeReadFile, safeReadJson } from '@zof-ai/evidence-spec';
+import { normalizeReport, MAX_REPORT_BYTES } from '@zofai/ci-evidence';
+import { assertSafeRelativePath, redact, redactText, safeReadFile, safeReadJson } from '@zofai/evidence-spec';
 export type TestStatus='passed'|'failed'|'skipped'|'error';
 export interface ObservationRun { id:string; status:'completed'|'partial'|'missing'|'error'; tests:{name:string;status:TestStatus}[] }
 export interface DetectionOptions { minSamples?:number }

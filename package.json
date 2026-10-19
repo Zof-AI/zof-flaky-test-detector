@@ -1,5 +1,5 @@
 {
-  "name": "@zof-ai/flaky-test-detector",
+  "name": "@zofai/flaky-test-detector",
   "version": "0.1.0",
   "description": "Offline observed test instability analysis from repeated JUnit observations",
   "type": "module",
@@ -56,7 +56,7 @@
     "@types/node": "22.19.11"
   },
   "dependencies": {
-    "@zof-ai/ci-evidence": "0.1.0",
-    "@zof-ai/evidence-spec": "0.1.0"
+    "@zofai/ci-evidence": "0.1.0",
+    "@zofai/evidence-spec": "0.1.0"
   }
 }
