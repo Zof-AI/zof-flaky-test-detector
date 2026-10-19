@@ -1,0 +1,60 @@
+{
+  "name": "@zof-ai/flaky-test-detector",
+  "version": "0.1.0",
+  "description": "Offline observed test instability analysis from repeated JUnit observations",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "bin": {
+    "zof-flaky-test-detector": "./dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md",
+    "docs",
+    "examples",
+    "SECURITY.md"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Zof-AI/zof-flaky-test-detector.git"
+  },
+  "homepage": "https://github.com/Zof-AI/zof-flaky-test-detector#readme",
+  "bugs": {
+    "url": "https://github.com/Zof-AI/zof-flaky-test-detector/issues"
+  },
+  "keywords": [
+    "verification",
+    "testing",
+    "zof"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test test/*.test.mjs",
+    "check": "npm test && npm pack --dry-run --ignore-scripts"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3",
+    "@types/node": "22.19.11"
+  },
+  "dependencies": {
+    "@zof-ai/ci-evidence": "0.1.0",
+    "@zof-ai/evidence-spec": "0.1.0"
+  }
+}

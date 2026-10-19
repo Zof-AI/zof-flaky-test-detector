@@ -1,0 +1,1 @@
+<testsuite tests="3" failures="1"><testcase name="stable"/><testcase name="intermittent"/><testcase name="failing"><failure>synthetic assertion</failure></testcase></testsuite>

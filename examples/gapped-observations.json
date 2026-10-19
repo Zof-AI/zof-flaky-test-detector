@@ -1,0 +1,1 @@
+[{"id":"run-1","status":"completed","tests":[{"name":"gapped","status":"passed"}]},{"id":"run-2","status":"partial","tests":[{"name":"gapped","status":"skipped"}]},{"id":"run-3","status":"completed","tests":[{"name":"gapped","status":"failed"}]}]
