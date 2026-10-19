@@ -21,7 +21,9 @@
     "CHANGELOG.md",
     "docs",
     "examples",
-    "SECURITY.md"
+    "SECURITY.md",
+    "CONTRIBUTING.md",
+    "CODE_OF_CONDUCT.md"
   ],
   "engines": {
     "node": ">=22"
