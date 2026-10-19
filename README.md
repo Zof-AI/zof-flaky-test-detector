@@ -1,4 +1,4 @@
-# @zofai/flaky-test-detector
+# @zof-ai/flaky-test-detector
 
 Analyze repeated test outcomes locally to identify **observed instability**. The tool imports JUnit XML or explicit JSON observations, tracks pass/fail transitions, ranks tests for review, and distinguishes insufficient samples, missing observations, skipped tests and execution errors. It never executes or quarantines tests.
 
@@ -22,7 +22,7 @@ npm test
 
 The bootstrap downloads only the exact `v0.1.0` dependency assets from [GitHub Releases](https://github.com/Zof-AI/zof-flaky-test-detector/releases), as listed in `scripts/release-dependencies.json`, verifies SHA256 and byte size, and adds them to the npm cache. It does not extract archives, run package scripts, collect application data, or send credentials. Downloads require the explicit flag and follow only HTTPS GitHub asset redirects. Installation then fetches ordinary third-party dependencies from npm. Use a writable npm cache; set `npm_config_cache` consistently for both commands if needed. An unavailable asset, changed hash, or oversized response stops installation.
 
-GitHub source and release artifacts are the initial distribution channel. These instructions do not claim that `@zofai` packages are published on npm or that the VS Code extension is listed in Marketplace.
+GitHub source and release artifacts are the initial distribution channel. These instructions do not claim that `@zof-ai` packages are published on npm or that the VS Code extension is listed in Marketplace.
 <!-- ZOF_RELEASE_INSTALL_END -->
 
 ## Quick start
@@ -35,7 +35,7 @@ npm run build
 node dist/cli.js --root examples --observations stable-observations.json --json
 ```
 
-The output identifies three observed passing results for `stable`. The package identifier is `@zofai/flaky-test-detector`; the executable name is `zof-flaky-test-detector`.
+The output identifies three observed passing results for `stable`. The package identifier is `@zof-ai/flaky-test-detector`; the executable name is `zof-flaky-test-detector`.
 
 ## Three examples
 
@@ -55,7 +55,7 @@ JUnit arguments must be in chronological execution order; files are never sorted
 ## API and JSON contract
 
 ```js
-import { detectFlakiness, analyzeJUnit, formatReport } from '@zofai/flaky-test-detector';
+import { detectFlakiness, analyzeJUnit, formatReport } from '@zof-ai/flaky-test-detector';
 const report = await analyzeJUnit({
   root: '/absolute/path/to/synthetic-results',
   files: ['run-1.xml', 'run-2.xml', 'run-3.xml'],
@@ -72,7 +72,7 @@ console.log(formatReport(report));
 
 Run statuses are `completed`, `partial`, `missing` and `error`. Test outcomes are `passed`, `failed`, `skipped` and `error`. Run IDs and per-run test names must be unique, including after redaction. `analyzeObservationFile(root, relativePath, options?)` loads this format safely. Missing runs cannot contain test observations. Unknown fields and invalid statuses fail explicitly.
 
-JUnit import uses the shared `@zofai/ci-evidence` normalizer. Test identity is `classname::name` where a class is supplied, otherwise `suite-name::name` for the nearest named suite, otherwise the test name. Ambiguous or redacted identity collisions fail rather than conflating tests. Malformed or unavailable artifacts become explicit run errors while usable observations are preserved.
+JUnit import uses the shared `@zof-ai/ci-evidence` normalizer. Test identity is `classname::name` where a class is supplied, otherwise `suite-name::name` for the nearest named suite, otherwise the test name. Ambiguous or redacted identity collisions fail rather than conflating tests. Malformed or unavailable artifacts become explicit run errors while usable observations are preserved.
 
 Reports use `test-instability/v1`. Fields include `runCount`, `minSamples`, `complete`, ranked tests, `runIssues`, limitations, `verificationResult: "not-run"` and `quarantinedTests: []`. Per-test metrics include pass/fail/skipped/error/missing counts, evaluated samples, adjacent comparable pairs, transitions, observed failure rate and observed transition rate.
 

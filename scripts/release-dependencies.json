@@ -3,21 +3,21 @@
   "release": "v0.1.0",
   "dependencies": [
     {
-      "packageName": "@zofai/ci-evidence",
+      "packageName": "@zof-ai/ci-evidence",
       "version": "0.1.0",
       "repository": "zof-ci-evidence",
-      "artifact": "zofai-ci-evidence-0.1.0.tgz",
-      "url": "https://github.com/Zof-AI/zof-ci-evidence/releases/download/v0.1.0/zofai-ci-evidence-0.1.0.tgz",
-      "sha256": "57a63833fa003f8c199599c6a3612f6015c140fda5a55f982a0a006d932612e4",
-      "sizeBytes": 15720
+      "artifact": "zof-ai-ci-evidence-0.1.0.tgz",
+      "url": "https://github.com/Zof-AI/zof-ci-evidence/releases/download/v0.1.0/zof-ai-ci-evidence-0.1.0.tgz",
+      "sha256": "71748e8c00e61803b8c65a316413f702c3c1c372abf9c470bb0d1cc16785f403",
+      "sizeBytes": 15724
     },
     {
-      "packageName": "@zofai/evidence-spec",
+      "packageName": "@zof-ai/evidence-spec",
       "version": "0.1.0",
       "repository": "zof-evidence-spec",
-      "artifact": "zofai-evidence-spec-0.1.0.tgz",
-      "url": "https://github.com/Zof-AI/zof-evidence-spec/releases/download/v0.1.0/zofai-evidence-spec-0.1.0.tgz",
-      "sha256": "94dffbef977c91f19828200631d889c19bc28aff1fdefcd2b907cb3a1bc9265f",
+      "artifact": "zof-ai-evidence-spec-0.1.0.tgz",
+      "url": "https://github.com/Zof-AI/zof-evidence-spec/releases/download/v0.1.0/zof-ai-evidence-spec-0.1.0.tgz",
+      "sha256": "d3d83c1335b801d155d17d3dc3cafd777a55f986d7a9f6023d90513970245ba5",
       "sizeBytes": 25239
     }
   ]
